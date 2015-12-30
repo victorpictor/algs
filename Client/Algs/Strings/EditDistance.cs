@@ -1,7 +1,6 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Client
+namespace Client.Algs.Strings
 {
     public class EditDistance
     {
@@ -10,11 +9,11 @@ namespace Client
             var s1l = str1.Length;
             var s2l = str2.Length;
 
-            var d = new int[s1l,s2l];
+            var d = new int[s1l, s2l];
 
             for (int j = 0; j < s2l; j++)
                 d[0, j] = j;
-            
+
             for (int i = 0; i < s1l; i++)
                 d[i, 0] = i;
 
@@ -34,20 +33,6 @@ namespace Client
             }
 
             return d[s1l - 1, s2l - 1];
-        }
-    }
-
-
-
-
-    [TestClass]
-    public class Runner
-    {
-        [TestMethod]
-        public void AlgTest()
-        {
-            var distance = new EditDistance().Find("Viktor", "victoras");
-
-        }
+        } 
     }
 }
