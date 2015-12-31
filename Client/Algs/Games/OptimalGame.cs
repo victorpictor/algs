@@ -1,10 +1,7 @@
 ﻿using System;
-using Client.Algs.Strings;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Client
+namespace Client.Algs.Games
 {
-
     public class OptimalGame
     {
         private int[,] game;
@@ -24,27 +21,17 @@ namespace Client
             if (i == j)
                 return game[i, j] = coins[i];
 
-            if (i+1 == j)
+            if (i + 1 == j)
                 return game[i, j] = Math.Max(coins[i], coins[j]);
 
             if (game[i, j] != 0)
                 return game[i, j];
 
             return Math.Max(coins[i] + Math.Min(Play(i + 2, j), Play(i + 1, j - 1)),
-                            coins[j] + Math.Min(Play(i, j-2), Play(i + 1, j - 1)));
+                            coins[j] + Math.Min(Play(i, j - 2), Play(i + 1, j - 1)));
 
         }
 
-       
-    }
 
-    [TestClass]
-    public class Runner
-    {
-        [TestMethod]
-        public void AlgTest()
-        {
-            var c = new OptimalGame(new[] { 8, 15, 3, 7 }).Play(0,3);
-        }
     }
 }

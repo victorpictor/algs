@@ -42,7 +42,10 @@
   <ItemGroup>
     <Compile Include="Algs\Sorting\BoxStackingProblem.cs" />
     <Compile Include="Algs\Graph\DjikstraShortestPath.cs" />
+    <Compile Include="Algs\Strings\EditDistance.cs" />
     <Compile Include="Algs\Strings\KmpKeySearch.cs" />
+    <Compile Include="Algs\Strings\LongestPalindromeSubSeq.cs" />
+    <Compile Include="Algs\Strings\LongestSubsequence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner.cs" />
   </ItemGroup>
