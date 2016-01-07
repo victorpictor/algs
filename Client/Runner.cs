@@ -1,73 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Client.Algs.Search;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Client
 {
-    public class WordLadder
-    {
-        internal class WordLevel
-        {
-            internal int Level;
-            internal string Word;
-        }
 
-        private List<string> words;
-        private List<string> except;
-        public WordLadder(List<string> words)
-        {
-            this.words = words;
-            this.except = new List<string>();
-        }
-
-        public List<string> NextWords(string s)
-        {
-            var result = new List<string>();
-            var nextWordsCnadidates = words.Except(except);
-
-            foreach (var w in nextWordsCnadidates)
-            {
-                var dist = EditDistance(s, w);
-
-                if (dist == 1)
-                {
-                    result.Add(w);
-                    except.Add(w);
-                }
-            }
-
-            return result;
-        }
-
-        private int EditDistance(string s, string w)
-        {
-            return w.Select((t, i) => (s[i] != t ? 1 : 0)).Sum();
-        }
-
-        public int FromTo(string s1, string s2)
-        {
-            var nextWords = NextWords(s1);
-            var queue = new Queue<WordLevel>();
-            nextWords.ForEach(w => queue.Enqueue(new WordLevel(){Level = 1, Word = w}));
-
-            while (queue.Peek()!=null)
-            {
-                var candidate = queue.Dequeue();
-                if (EditDistance(candidate.Word,s2) == 1)
-                {
-                    return candidate.Level+1;
-                }
-
-                nextWords = NextWords(candidate.Word);
-                nextWords.ForEach(w => queue.Enqueue(new WordLevel() { Level = candidate.Level+1, Word = w }));
-            }
-
-            return -1;
-        }
-    }
-
-
+    //Count the number of occurrences of an element in a sorted array
+    //1 3 4 5 5 5 5 5 5 8 9 10 
 
     [TestClass]
     public class Runner
@@ -75,7 +16,7 @@ namespace Client
         [TestMethod]
         public void AlgTest()
         {
-           var s =  new WordLadder(new List<string>() {"hot", "dot", "dog", "lot", "log"}).FromTo("hit", "cog");
+            var i = new BinaryFind(new[] {2,4,5,5,6,7,7,7,7,7,7,7, 8,9, 9, 10}).FindKey(9);
         }
     }
 }
