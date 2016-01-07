@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Client
+namespace Client.Algs.Strings
 {
     public class WordLadder
     {
@@ -49,33 +47,21 @@ namespace Client
         {
             var nextWords = NextWords(s1);
             var queue = new Queue<WordLevel>();
-            nextWords.ForEach(w => queue.Enqueue(new WordLevel(){Level = 1, Word = w}));
+            nextWords.ForEach(w => queue.Enqueue(new WordLevel() { Level = 1, Word = w }));
 
-            while (queue.Peek()!=null)
+            while (queue.Peek() != null)
             {
                 var candidate = queue.Dequeue();
-                if (EditDistance(candidate.Word,s2) == 1)
+                if (EditDistance(candidate.Word, s2) == 1)
                 {
-                    return candidate.Level+1;
+                    return candidate.Level + 1;
                 }
 
                 nextWords = NextWords(candidate.Word);
-                nextWords.ForEach(w => queue.Enqueue(new WordLevel() { Level = candidate.Level+1, Word = w }));
+                nextWords.ForEach(w => queue.Enqueue(new WordLevel() { Level = candidate.Level + 1, Word = w }));
             }
 
             return -1;
-        }
-    }
-
-
-
-    [TestClass]
-    public class Runner
-    {
-        [TestMethod]
-        public void AlgTest()
-        {
-           var s =  new WordLadder(new List<string>() {"hot", "dot", "dog", "lot", "log"}).FromTo("hit", "cog");
         }
     }
 }

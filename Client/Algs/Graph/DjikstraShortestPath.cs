@@ -45,7 +45,7 @@ namespace Client.Algs.Graph
         {
             var result = new Dictionary<int, int>();
 
-            result.Add(edges[0].S, edges[0].C);
+            result.Add(edges[0].S, 0);
 
             for (int i = 1; i < edges.Count; i++)
             {
