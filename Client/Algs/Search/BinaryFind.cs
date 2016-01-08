@@ -23,7 +23,6 @@
         }
 
         
-
         public int Find(int key, int s, int e)
         {
             while (s <= e)
