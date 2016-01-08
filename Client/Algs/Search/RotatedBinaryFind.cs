@@ -20,22 +20,30 @@
             if (s == e && a[e] != key)
                 return NotFound;
 
-            var m = (s + e) / 2;
+            var m = (s + e)/2;
 
             if (a[m] == key)
                 return m;
 
-            if (a[m] < a[e] && key >= a[m] && key <= a[e])
+            if (a[s] < a[m])
             {
-                return FindKey(key, m, e);
+                if (key <= a[m] && key >= a[s])
+                    return FindKey(key, s, m);
+
+                return FindKey(key, m + 1, e);
             }
 
+            if (key >= a[m])
+                return FindKey(key, m, e);
+
             return FindKey(key, s, m - 1);
+
+
         }
 
         public void AlgTest()
         {
-            var i = new Client.RotatedBinaryFind(new[] { 6, 9, 1, 2, 3, 4, 5, }).FindKey(8);
+            var i = new RotatedBinaryFind(new[] {6, 9, 1, 2, 3, 4, 5,}).FindKey(8);
         }
 
     }

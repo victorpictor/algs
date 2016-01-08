@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Algs\Games\OptimalGame.cs" />
     <Compile Include="Algs\Search\BinaryFind.cs" />
+    <Compile Include="Algs\Search\RotatedBinaryFind.cs" />
     <Compile Include="Algs\Sorting\BoxStackingProblem.cs" />
     <Compile Include="Algs\Graph\DjikstraShortestPath.cs" />
     <Compile Include="Algs\Strings\EditDistance.cs" />
