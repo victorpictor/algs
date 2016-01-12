@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Client.Algs.Search;
-using Client.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
 
-namespace Client
+namespace Client.Algs.Strings
 {
-
-    // foor buur
-
     public class IsomorphicStrings
     {
         public bool Check(string s1, string s2)
         {
             if (s1.Length != s2.Length)
                 return false;
-            
+
 
             var dic = new Dictionary<char, char>();
 
@@ -28,7 +18,7 @@ namespace Client
                 {
                     if (dic[s1[i]] == s2[i])
                         continue;
-                    
+
                     return false;
                 }
 
@@ -39,14 +29,4 @@ namespace Client
         }
     }
 
-
-    [TestClass]
-    public class Runner
-    {
-        [TestMethod]
-        public void AlgTest()
-        {
-            var are = new IsomorphicStrings().Check("foorum", "brrkom");
-        }
-    }
 }
