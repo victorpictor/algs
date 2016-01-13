@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Client.Algs.Numbers;
-using Client.Algs.Search;
-using Client.Algs.Strings;
-using Client.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
 
-namespace Client
+namespace Client.Algs.Search
 {
     public class LongestIncreasingSeq
     {
@@ -21,15 +12,14 @@ namespace Client
 
             for (int i = 1; i < a.Length; i++)
             {
-                if (a[i-1] < a[i])
+                if (a[i - 1] < a[i])
                 {
                     len++;
                     sol.Add(a[i]);
                 }
                 else
-                {
                     sol[FindIndex(sol, a[i], len)] = a[i];
-                }
+
             }
 
             return len;
@@ -41,9 +31,9 @@ namespace Client
             var s = 0;
             var e = n - 1;
             var m = (s + e) / 2;
-            while (s<=e)
+            while (s <= e)
             {
-                m = (s + e)/2;
+                m = (s + e) / 2;
 
                 if (sol[m] == key)
                     return m;
@@ -55,16 +45,6 @@ namespace Client
             }
 
             return m;
-        }
-    }
-
-    [TestClass]
-    public class Runner
-    {
-        [TestMethod]
-        public void AlgTest()
-        {
-            var are = new LongestIncreasingSeq().Find(new[]{1,4,1,6,3,7,4,9});
         }
     }
 }

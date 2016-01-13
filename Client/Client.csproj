@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algs\Games\OptimalGame.cs" />
+    <Compile Include="Algs\Numbers\Triangle.cs" />
     <Compile Include="Algs\Search\BinaryFind.cs" />
     <Compile Include="Algs\Search\RotatedBinaryFind.cs" />
     <Compile Include="Algs\Sorting\BoxStackingProblem.cs" />
